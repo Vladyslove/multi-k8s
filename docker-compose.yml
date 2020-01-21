@@ -56,10 +56,10 @@ services: # each service like domains/host names or some sorts
       - /app/node_modules
       - ./client:/app
   worker:
-    build:
-      environment:
+    environment:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
+    build:
       dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
