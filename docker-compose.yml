@@ -23,7 +23,7 @@ services: # each service like domains/host names or some sorts
 ##        depends_on:
 ##          - api
 ##          - client
-  server: # listen to 5000 - like backend.
+  api: # listen to 5000 - like backend.
           # server are watching for traffic on port 5000
     build:
       dockerfile: Dockerfile.dev
