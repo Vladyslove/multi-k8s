@@ -4,11 +4,8 @@ services: # each service like domains/host names or some sorts
   # that is hosted by the service
   postgres:
     image: 'postgres:latest'
-
-
-
-#  redis:
-#    image: 'redis:latest'
+  redis:
+    image: 'redis:latest'
 #  nginx:
 #    restart: always
 #    build:
@@ -26,15 +23,14 @@ services: # each service like domains/host names or some sorts
 ##        depends_on:
 ##          - api
 ##          - client
-#
-#  api: # listen to 5000 - like backend.
-#          # server are watching for traffic on port 5000
-#    build:
-#      dockerfile: Dockerfile.dev
-#      context: ./server
-#    volumes:
-#      - /app/node_modules
-#      - ./server:/app
+  server: # listen to 5000 - like backend.
+          # server are watching for traffic on port 5000
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
 #    # env vars do not stores inside container or wherever
 #    # they are used in runtime
 #    environment:
