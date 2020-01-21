@@ -48,23 +48,23 @@ services: # each service like domains/host names or some sorts
       - PGPASSWORD=postgres_password
 # used value from Amazon (can be different, but not in this course)
       - PGPORT=5432
-#  client: # listen to 3000 - like frontend (create-react-app).
-#          # client by default are watching for traffic on port 5000
-#    build:
-#      dockerfile: Dockerfile.dev
-#      context: ./client
-#    volumes:
-#      - /app/node_modules
-#      - ./client:/app
-#  worker:
-#    build:
+  client: # listen to 3000 - like frontend (create-react-app).
+          # client by default are watching for traffic on port 5000
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app
+  worker:
+    build:
 #      - REDIS_HOST=redis
 #      - REDIS_PORT=6379
-#      dockerfile: Dockerfile.dev
-#      context: ./worker
-#    volumes:
-#      - /app/node_modules
-#      - ./worker:/app
+      dockerfile: Dockerfile.dev
+      context: ./worker
+    volumes:
+      - /app/node_modules
+      - ./worker:/app
 
 
 
