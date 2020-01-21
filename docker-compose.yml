@@ -25,6 +25,8 @@ services: # each service like domains/host names or some sorts
     build:
       dockerfile: Dockerfile.dev
       context: ./server
+    depends_on:
+      - postgres
     volumes:
       - /app/node_modules
       - ./server:/app
@@ -55,8 +57,9 @@ services: # each service like domains/host names or some sorts
       - ./client:/app
   worker:
     build:
-#      - REDIS_HOST=redis
-#      - REDIS_PORT=6379
+      environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
       dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
