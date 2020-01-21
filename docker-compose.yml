@@ -6,23 +6,20 @@ services: # each service like domains/host names or some sorts
     image: 'postgres:latest'
   redis:
     image: 'redis:latest'
-#  nginx:
-#    restart: always
-#    build:
-#      dockerfile: Dockerfile.dev
-#      context: ./nginx
-#    ports:
-#      - '3050:80'
-##    A small number of students are hitting an edge case where the nginx upstream connection is failing after they run docker-compose up --build:
-##
-##    connect() failed (111: Connection refused) while connecting to upstream, client:[DOCKER INTERNAL IP], server:, request: "GET / HTTP/1.1", upstream: [NETWORK IP]
-##
-##    The solution they found was to add this to their nginx service in the docker-compose.yml file:
-##
-##      nginx:
-##        depends_on:
-##          - api
-##          - client
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '3050:80'
+#    A small number of students are hitting an edge case where the nginx upstream connection is failing after they run docker-compose up --build:
+#    connect() failed (111: Connection refused) while connecting to upstream, client:[DOCKER INTERNAL IP], server:, request: "GET / HTTP/1.1", upstream: [NETWORK IP]
+#    The solution they found was to add this to their nginx service in the docker-compose.yml file:
+#      nginx:
+#        depends_on:
+#          - api
+#          - client
   api: # listen to 5000 - like backend.
           # server are watching for traffic on port 5000
     build:
