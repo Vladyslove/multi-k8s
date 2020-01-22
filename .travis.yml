@@ -28,10 +28,10 @@ after_success:
 deploy:
   provider: elasticbeanstalk
   region: us-west-2
-  app: multi-docker
-  env: MultiDocker-env
+  app: mutli-docker
+  env: MutliDocker-env
   bucket_name: elasticbeanstalk-us-west-2-603648456548
-  bucket_path: docker-multi
+  bucket_path: docker-mutli
   on:
     branch: master
   access_key_id: $AWS_ACCESS_KEY
