@@ -42,7 +42,7 @@ services: # each service like domains/host names or some sorts
 # used value from Amazon (can be different, but not in this course)
       - PGHOST=postgres
 # used value from Amazon RDS Service -> Connect section -> Endpoint
-      - PDDATABASE=postgres
+      - PGDATABASE=postgres
 # sed value from Amazon database_name: fibvalues
       - PGPASSWORD=postgres_password
 # used value from Amazon (can be different, but not in this course)
