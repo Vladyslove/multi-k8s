@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployement
+metadata:
+  name: server-deployment
+spec:
+  replicas: 3
+  selector: # Next up we're going to specify the selector that
+  # the deployment is going to use to find these set of
+  # pods that it's supposed to control.
+    matchLabels:
+      component: server # in could be ->
+    # partOfApp: api # but ->
+      # But I personally enjoy this kind of component and then
+        # piece of the application terminology I think
+  template: # (pod template)
+    metadata:
+      labels: # And again the labels that we apply to the saying
+                # must at least match up with whatever we put inside
+                  # the spec for the deployment itself.
+        component: server
+    spec: # spec is gonna customize the exact behavior of
+            # each of the pods that gets created.
+      containers: # that this pot is supposed to run
+        - name: server
+          image: vladstepanov/multi-server
+          ports:
+            - containerPort: 5000
+# But we are going to eventually come back and add on
+  # a series of environment variables that we want to
+  #
+  # make sure get injected into that container
+  # that is created with this image.
+  #
+  # And remember the entire goal that is that
+  # we're going to tell the Express API how to connect
+  # to postgres script and read redis.
