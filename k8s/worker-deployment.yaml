@@ -11,10 +11,10 @@ spec:
     metadata:
       labels:
         component: worker
-  spec:
-    containers:
-      - name: worker
-        image: vladstepanov/multi-worker
+    spec:
+      containers:
+        - name: worker
+          image: vladstepanov/multi-worker
   # The multi worker is going to connect to something else
   # inside of application but nothing is going to
   #
