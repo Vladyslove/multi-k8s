@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: worker-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: worker
+  template:
+    metadata:
+      labels:
+        component: worker
+  spec:
+    containers:
+      - name: worker
+        image: vladstepanov/multi-worker
+  # The multi worker is going to connect to something else
+  # inside of application but nothing is going to
+  #
+  # make a unprompted request into the multi worker.
+  #
+  # And as such the multi worker does not need to have any port
+  # assigned to it and it does not need to have
+  # any service assigned to it either.
