@@ -38,7 +38,11 @@ spec:
               value: 5432
             - name: PGDATABASE
               value: postgres
-
+            - name: PGPASSWORD #this (1)
+              valueFrom:
+                secretKeyRef:
+                  name: pgpassword
+                  key: PGPASSWORD #this (2) easily can be different
 # But we are going to eventually come back and add on
   # a series of environment variables that we want to
   #
