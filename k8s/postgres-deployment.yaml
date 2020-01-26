@@ -14,8 +14,20 @@ spec:
       labels:
         component: postgres
     spec:
+      # When we put together our template we said we want to have
+      # a volume available that matches these requirements.
+      volumes:
+        - name: postgres-storage
+          persistentVolumeClaim:
+            claimName: database-persistent-volume-claim
       containers:
         - name: postgres
           image: postgres
           ports:
             - containerPort: 5432
+          # And then inside the container we put together some actual
+          # options to say take that volume and make it available
+          # inside of this very particular container.
+          volumeMounts:
+            - name: postgres-storage
+              mountPath: /var/lib/postgresql/data

@@ -8,3 +8,5 @@ spec:
   resources:
     requests:
       storage: 2Gi
+# Persistent volume claim that tells k8s that we want
+  # to find a storage option with these requirements.
