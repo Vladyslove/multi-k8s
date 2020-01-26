@@ -2,6 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis-cluster-ip-service
+  # this gonna be hostname to connect multi-worker and redis pods
 spec:
   type: ClusterIP
   selector:

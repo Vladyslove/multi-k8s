@@ -25,6 +25,20 @@ spec:
           image: vladstepanov/multi-server
           ports:
             - containerPort: 5000
+          env:
+            - name: REDIS_HOST
+              value: redis-cluster-ip-service
+            - name: REDIS_PORT
+              value: 6379
+            - name: PGUSER
+              value: postgres
+            - name: PGHOST
+              value: postgres-cluster-ip-service # name: from postgres-cluster-ip-service.yaml
+            - name: PGPORT
+              value: 5432
+            - name: PGDATABASE
+              value: postgres
+
 # But we are going to eventually come back and add on
   # a series of environment variables that we want to
   #
