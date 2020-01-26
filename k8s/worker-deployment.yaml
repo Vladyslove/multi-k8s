@@ -19,7 +19,7 @@ spec:
             - name: REDIS_HOST
               value: redis-cluster-ip-service # name: from the redis-cluster-ip-service.yaml
             - name: REDIS_PORT
-              value: 6379
+              value: '6379'
 
   # The multi worker is going to connect to something else
   # inside of application but nothing is going to
