@@ -5,7 +5,7 @@ metadata:
   annotations: # (=configuration rules)
     kubernetes.io/ingress.class: nginx # this configuration rule is essentially telling k8s that
                                       # we want to create an ingress controller based on the nginx project.
-    nginx.ingress.kubernetes.io/rewrite-target: /  # this rule is gonna specifically configure how our copy of nginx behaves.
+    nginx.ingress.kubernetes.io/rewrite-target: /$1  # this rule is gonna specifically configure how our copy of nginx behaves.
 
                                                    # this rule in particular says that if we end up matching a route
                                                    # like '/api' right here after deciding to send it to the server
@@ -16,11 +16,11 @@ spec:
   rules: # our rules are saying that there are two possible paths that we can match traffic to.
     - http:
         paths:
-          - path: /
+          - path: /?(.*)
             backend:
               serviceName: client-cluster-ip-service
               servicePort: 3000
-          - path: /api/
+          - path: /api/?(.*)
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
