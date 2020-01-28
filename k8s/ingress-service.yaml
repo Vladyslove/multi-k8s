@@ -13,7 +13,7 @@ metadata:
 
                                                    # And essentially it's going to remove the '/api' (slash API) part.
 spec:
-  rules: # our rules are saying that there are two possible paths that we can match traffic to.
+  rules: # our rules are saying that there are two possible paths that we can match traffic to
     - http:
         paths:
           - path: /?(.*)
