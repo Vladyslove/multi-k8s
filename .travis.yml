@@ -17,7 +17,7 @@ before_install:
 - gcloud config set project protean-fabric-266517
 - gcloud config set compute/zone europe-west2-a
 - gcloud container clusters get-credentials multi-cluster
-- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME --password-stdin
+- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 - docker build -t vladstepanov/react-test -f ./client/Dockerfile.dev ./client
 # ./client - is a build context
 script:
